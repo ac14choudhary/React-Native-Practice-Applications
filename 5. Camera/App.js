@@ -19,6 +19,7 @@ import {
 export default function App() {
   return (
     <SafeAreaView>
+      <View></View>
       <StatusBar barStyle="dark-content" />
     </SafeAreaView>
   );
