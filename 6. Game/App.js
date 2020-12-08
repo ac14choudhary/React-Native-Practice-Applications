@@ -11,8 +11,15 @@ import {
   Button,
   Content,
 } from 'native-base';
+
+import Icons from './Components/Icons';
+
 export default function App() {
-  return <View></View>;
+  return (
+    <View>
+      <Icons />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
