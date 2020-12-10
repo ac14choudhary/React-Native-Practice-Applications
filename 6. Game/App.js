@@ -13,6 +13,7 @@ import {
 } from 'native-base';
 
 import Icons from './Components/Icons';
+import Snackbar from 'react-native-snackbar';
 
 export default function App() {
   return (
