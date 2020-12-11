@@ -7,12 +7,21 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import {Fab, Icon} from 'native-base';
 
-export default function Home() {
+export default function Home({navigation, route}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text>My list of seasons</Text>
+      <Fab
+        style={{backgroundColor: '#ff6666'}}
+        position="bottomRight"
+        onPress={() => {
+          navigation.navigate('Add');
+        }}>
+        <Icon name="add" color="white" />
+      </Fab>
+    </ScrollView>
   );
 }
 
@@ -24,7 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    backgroundColor: '#1b262c',
+    backgroundColor: 'white',
     flex: 1,
   },
   heading: {
