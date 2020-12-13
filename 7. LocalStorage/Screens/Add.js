@@ -6,13 +6,19 @@ import {
   View,
   Text,
   StatusBar,
+  TextInput,
 } from 'react-native';
 
 export default function Add() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Add Screen</Text>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        flex: 1,
+        backgroundColor: '#121212',
+      }}>
+      <Text style={styles.heading}> Enter your new show here </Text>
+      <TextInput style={styles.transparent}></TextInput>
+    </ScrollView>
   );
 }
 
@@ -24,12 +30,22 @@ const styles = StyleSheet.create({
   },
   heading: {
     textAlign: 'center',
-    color: '#00b7c2',
-    marginHorizontal: 5,
-    marginTop: 50,
+    color: 'white',
+    fontSize: 20,
     marginBottom: 20,
+    marginTop: 20,
   },
   formItem: {
     marginBottom: 20,
+  },
+  transparent: {
+    opacity: 0.2,
+    backgroundColor: 'white',
+    height: 50,
+    width: '85%',
+    alignSelf: 'center',
+    fontSize: 25,
+    color: '#00B7C2',
+    borderRadius: 10,
   },
 });

@@ -12,7 +12,7 @@ import {Fab, Icon} from 'native-base';
 export default function Home({navigation, route}) {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text>My list of seasons</Text>
+      <Text style={styles.heading}>My list of seasons</Text>
       <Fab
         style={{backgroundColor: '#ff6666'}}
         position="bottomRight"
@@ -33,14 +33,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#121212',
     flex: 1,
   },
   heading: {
     textAlign: 'center',
-    color: '#00b7c2',
+    color: 'white',
     marginVertical: 15,
     marginHorizontal: 5,
+    fontSize: 18,
   },
   actionButton: {
     marginLeft: 5,

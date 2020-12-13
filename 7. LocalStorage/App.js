@@ -26,7 +26,7 @@ export default function App() {
           options={{
             headerStyle: {backgroundColor: '#ff6666'},
             title: 'Home',
-            headerTitleStyle: {color: '#121212'},
+            headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>
         <Stack.Screen
           name="Add"
@@ -34,7 +34,7 @@ export default function App() {
           options={{
             headerStyle: {backgroundColor: '#ff6666'},
             title: 'Add',
-            headerTitleStyle: {color: '#121212'},
+            headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>
         <Stack.Screen
           name="Edit"
@@ -42,7 +42,7 @@ export default function App() {
           options={{
             headerStyle: {backgroundColor: '#ff6666'},
             title: 'Edit',
-            headerTitleStyle: {color: '#121212'},
+            headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
