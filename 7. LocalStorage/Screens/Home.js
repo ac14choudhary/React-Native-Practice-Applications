@@ -14,7 +14,7 @@ export default function Home({navigation, route}) {
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.heading}>My list of seasons</Text>
       <Fab
-        style={{backgroundColor: '#ff6666'}}
+        style={{backgroundColor: '#2E2E33'}}
         position="bottomRight"
         onPress={() => {
           navigation.navigate('Add');

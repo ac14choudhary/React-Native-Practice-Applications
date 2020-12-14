@@ -24,7 +24,7 @@ export default function App() {
           name="Home"
           component={Home}
           options={{
-            headerStyle: {backgroundColor: '#ff6666'},
+            headerStyle: {backgroundColor: '#242424'},
             title: 'Home',
             headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>
@@ -32,7 +32,8 @@ export default function App() {
           name="Add"
           component={Add}
           options={{
-            headerStyle: {backgroundColor: '#ff6666'},
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: '#242424'},
             title: 'Add',
             headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>
@@ -40,7 +41,8 @@ export default function App() {
           name="Edit"
           component={Edit}
           options={{
-            headerStyle: {backgroundColor: '#ff6666'},
+            headerTintColor: 'white',
+            headerStyle: {backgroundColor: '#242424'},
             title: 'Edit',
             headerTitleStyle: {color: 'white'},
           }}></Stack.Screen>

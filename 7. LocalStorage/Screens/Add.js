@@ -39,13 +39,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   transparent: {
-    opacity: 0.2,
-    backgroundColor: 'white',
+    backgroundColor: '#242424',
     height: 50,
     width: '85%',
     alignSelf: 'center',
     fontSize: 25,
-    color: '#00B7C2',
+    color: 'white',
     borderRadius: 10,
+    paddingHorizontal: 20,
   },
 });
