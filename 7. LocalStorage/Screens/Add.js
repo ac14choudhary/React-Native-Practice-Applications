@@ -17,7 +17,7 @@ export default function Add() {
         backgroundColor: '#121212',
       }}>
       <Text style={styles.heading}> Enter your new show here </Text>
-      <TextInput style={styles.transparent}></TextInput>
+      <TextInput style={styles.Input1}></TextInput>
     </ScrollView>
   );
 }
@@ -38,14 +38,16 @@ const styles = StyleSheet.create({
   formItem: {
     marginBottom: 20,
   },
-  transparent: {
+  Input1: {
     backgroundColor: '#242424',
     height: 50,
     width: '85%',
     alignSelf: 'center',
-    fontSize: 25,
+    fontSize: 22,
     color: 'white',
     borderRadius: 10,
     paddingHorizontal: 20,
+    borderColor: '#DB61A2',
+    borderWidth: 0.8,
   },
 });
