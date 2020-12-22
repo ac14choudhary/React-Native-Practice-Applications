@@ -8,6 +8,7 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function Add() {
   return (
@@ -18,6 +19,10 @@ export default function Add() {
       }}>
       <Text style={styles.heading}> Enter your new show here </Text>
       <TextInput style={styles.Input1}></TextInput>
+
+      <TouchableOpacity style={styles.addButton}>
+        <Text style={styles.addText}> ADD </Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -49,5 +54,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderColor: '#DB61A2',
     borderWidth: 0.8,
+  },
+  addButton: {
+    width: '40%',
+    height: 50,
+    backgroundColor: '#23D18B',
+    alignSelf: 'center',
+    marginTop: 25,
+    borderRadius: 10,
+  },
+  addText: {
+    color: 'white',
+    fontSize: 25,
+    alignSelf: 'center',
+    justifyContent: 'center',
   },
 });
