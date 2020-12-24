@@ -10,11 +10,49 @@ import {
 } from 'react-native';
 import shortid from 'shortid';
 import AsyncStorage from '@react-native-community/async-storage';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import snackbar from 'react-native-snackbar';
 
-export default function Add() {
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Snackbar from 'react-native-snackbar';
+
+export default function Add({navigation}) {
   const [name, setName] = useState('');
   const [totalSeasons, setTotalSeasons] = useState('');
+
+  const addToList = async () => {
+    try {
+      if (!name || !totalSeasons) {
+        snackbar.show({
+          backgroundColor: '#ff6666',
+          textColor: '#ffffff',
+          text: 'please enter both the values',
+          duration: Snackbar.LENGTH_SHORT,
+        });
+        const seasonsToAdd = {
+          id: shortid.generate(),
+          name: name,
+          totalSeasons: totalSeasons,
+          isWatched: false,
+        };
+        const storedValue = await AsyncStorage.getItem('@season_list');
+        const prevList = await JSON.parse(storedValue);
+
+        if (!prevList) {
+          const newList = [seasonsToAdd];
+          await AsyncStorage.setItem('@season_list', JSON.stringify(newList));
+        } else {
+          prevList.push(seasonsToAdd);
+          await AsyncStorage.setItem('@season_list', JSON.stringify(prevList));
+        }
+      }
+      if (name && totalSeasons) {
+        navigation.navigate('Home');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <ScrollView
       contentContainerStyle={{
@@ -23,15 +61,21 @@ export default function Add() {
       }}>
       <Text style={styles.heading}> Enter your new show here </Text>
       <TextInput
+        autoCapitalize="sentences"
         placeholder="Enter Series Name"
         placeholderTextColor="#323232"
+        value={name}
+        onChangeText={(text) => setName(text)}
         style={styles.Input}></TextInput>
       <TextInput
+        keyboardType="number-pad"
         placeholder="Enter No. Of Seasons"
         placeholderTextColor="#323232"
+        value={totalSeasons}
+        onChangeText={(text) => setTotalSeasons(text)}
         style={styles.Input}></TextInput>
 
-      <TouchableOpacity style={styles.addButton}>
+      <TouchableOpacity onPress={addToList} style={styles.addButton}>
         <Text style={styles.addText}> ADD </Text>
       </TouchableOpacity>
     </ScrollView>
