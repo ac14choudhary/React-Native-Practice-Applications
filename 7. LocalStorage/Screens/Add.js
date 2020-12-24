@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,9 +8,13 @@ import {
   StatusBar,
   TextInput,
 } from 'react-native';
+import shortid from 'shortid';
+import AsyncStorage from '@react-native-community/async-storage';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function Add() {
+  const [name, setName] = useState('');
+  const [totalSeasons, setTotalSeasons] = useState('');
   return (
     <ScrollView
       contentContainerStyle={{
@@ -18,7 +22,14 @@ export default function Add() {
         backgroundColor: '#121212',
       }}>
       <Text style={styles.heading}> Enter your new show here </Text>
-      <TextInput style={styles.Input1}></TextInput>
+      <TextInput
+        placeholder="Enter Series Name"
+        placeholderTextColor="#323232"
+        style={styles.Input}></TextInput>
+      <TextInput
+        placeholder="Enter No. Of Seasons"
+        placeholderTextColor="#323232"
+        style={styles.Input}></TextInput>
 
       <TouchableOpacity style={styles.addButton}>
         <Text style={styles.addText}> ADD </Text>
@@ -43,7 +54,7 @@ const styles = StyleSheet.create({
   formItem: {
     marginBottom: 20,
   },
-  Input1: {
+  Input: {
     backgroundColor: '#242424',
     height: 50,
     width: '85%',
@@ -52,13 +63,13 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 10,
     paddingHorizontal: 20,
-    borderColor: '#DB61A2',
-    borderWidth: 0.8,
+    marginBottom: '5%',
   },
   addButton: {
     width: '40%',
     height: 50,
-    backgroundColor: '#23D18B',
+    backgroundColor: '#00BFA5',
+    justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 25,
     borderRadius: 10,
@@ -67,6 +78,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     alignSelf: 'center',
-    justifyContent: 'center',
   },
 });
