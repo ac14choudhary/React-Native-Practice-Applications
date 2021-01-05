@@ -6,21 +6,41 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
 } from 'react-native';
 import {Fab, Icon} from 'native-base';
+import shortid from 'shortid';
+import AsyncStorage from '@react-native-community/async-storage';
+import snackbar from 'react-native-snackbar';
+import checkbox from '@react-native-community/checkbox';
+import {useState} from 'react';
 
 export default function Home({navigation, route}) {
+  const [ListOfSeasons, SetListOfSeasons] = useState(['title']);
+
+  const getList = async () => {};
+
+  const deleteItem = async () => {};
+
+  const markComplete = async () => {};
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>My list of seasons</Text>
-      <Fab
-        style={{backgroundColor: '#2E2E33'}}
-        position="bottomRight"
+      {ListOfSeasons.length == 0 ? (
+        <View>
+          <Text style={styles.heading}>No List of Shows available</Text>
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.heading}>mast series thi</Text>
+        </View>
+      )}
+      <TouchableOpacity
+        style={styles.FAB}
         onPress={() => {
           navigation.navigate('Add');
         }}>
-        <Icon name="add" color="white" />
-      </Fab>
+        <Icon style={styles.Icon} name="add" />
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -53,5 +73,20 @@ const styles = StyleSheet.create({
   listItem: {
     marginLeft: 0,
     marginBottom: 20,
+  },
+  FAB: {
+    position: 'absolute',
+    left: '80%',
+    top: '85%',
+    backgroundColor: '#2E2E33',
+    height: 70,
+    width: 70,
+    borderRadius: 100,
+    justifyContent: 'center',
+  },
+  Icon: {
+    color: 'white',
+    fontSize: 30,
+    alignSelf: 'center',
   },
 });

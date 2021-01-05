@@ -22,7 +22,7 @@ export default function Add({navigation}) {
   const addToList = async () => {
     try {
       if (!name || !totalSeasons) {
-        snackbar.show({
+        Snackbar.show({
           backgroundColor: '#ff6666',
           textColor: '#ffffff',
           text: 'please enter both the values',
