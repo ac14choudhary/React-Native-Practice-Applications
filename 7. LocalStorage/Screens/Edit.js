@@ -10,17 +10,17 @@ import {
 
 export default function Edit() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Edit Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.heading}>Edit Screen</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1b262c',
+    backgroundColor: '#121212',
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
   },
   heading: {
     textAlign: 'center',

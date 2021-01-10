@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,17 +7,18 @@ import {
   View,
   Text,
   StatusBar,
+  TextInput,
   TouchableOpacity,
 } from 'react-native';
-import {Fab, Icon} from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import shortid from 'shortid';
 import AsyncStorage from '@react-native-community/async-storage';
 import snackbar from 'react-native-snackbar';
-import checkbox from '@react-native-community/checkbox';
-import {useState} from 'react';
+import Checkbox from '@react-native-community/checkbox';
 
 export default function Home({navigation, route}) {
-  const [ListOfSeasons, SetListOfSeasons] = useState(['title']);
+  const [ListOfSeasons, SetListOfSeasons] = useState(['The game of Thrones']);
+  const [isSelected, setSelection] = useState(false);
 
   const getList = async () => {};
 
@@ -30,8 +32,36 @@ export default function Home({navigation, route}) {
           <Text style={styles.heading}>No List of Shows available</Text>
         </View>
       ) : (
-        <View>
-          <Text style={styles.heading}>mast series thi</Text>
+        <View style={{flex: 1}}>
+          <Text style={styles.heading}>List of Shows</Text>
+          <View style={styles.checkboxContainer}>
+            <View
+              style={{alignSelf: 'center', flex: 12, flexDirection: 'column'}}>
+              <Text style={styles.heading1}>{ListOfSeasons}</Text>
+              <Text style={styles.subHeading1}>3 seasons </Text>
+            </View>
+            <View style={{alignSelf: 'center', flex: 3}}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Edit');
+                }}>
+                <Icon style={styles.editIcon} name="pencil" />
+              </TouchableOpacity>
+            </View>
+            <View style={{alignSelf: 'center', flex: 3}}>
+              <TouchableOpacity>
+                <Icon style={styles.Icon2} name="delete" />
+              </TouchableOpacity>
+            </View>
+
+            <View style={{alignSelf: 'center', flex: 3}}>
+              <Checkbox
+                value={isSelected}
+                onValueChange={setSelection}
+                style={styles.checkbox}
+              />
+            </View>
+          </View>
         </View>
       )}
       <TouchableOpacity
@@ -39,19 +69,13 @@ export default function Home({navigation, route}) {
         onPress={() => {
           navigation.navigate('Add');
         }}>
-        <Icon style={styles.Icon} name="add" />
+        <Icon style={styles.Icon} name="plus" />
       </TouchableOpacity>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: {
-    backgroundColor: '#1b262c',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   container: {
     backgroundColor: '#121212',
     flex: 1,
@@ -63,30 +87,56 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     fontSize: 18,
   },
-  actionButton: {
-    marginLeft: 5,
+  heading1: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 15,
   },
-  seasonName: {
-    color: '#fdcb9e',
-    textAlign: 'justify',
+
+  subHeading1: {
+    textAlign: 'center',
+    color: '#515151',
+    fontSize: 12,
   },
-  listItem: {
-    marginLeft: 0,
-    marginBottom: 20,
-  },
+
   FAB: {
     position: 'absolute',
-    left: '80%',
-    top: '85%',
-    backgroundColor: '#2E2E33',
+    backgroundColor: '#242424',
     height: 70,
     width: 70,
     borderRadius: 100,
     justifyContent: 'center',
+    right: 20,
+    bottom: 20,
   },
   Icon: {
     color: 'white',
     fontSize: 30,
     alignSelf: 'center',
+  },
+
+  checkboxContainer: {
+    flex: 0.125,
+    flexDirection: 'row',
+    width: '90%',
+    height: '30%',
+    backgroundColor: '#242424',
+    alignSelf: 'center',
+    borderRadius: 10,
+    justifyContent: 'space-evenly',
+  },
+  checkbox: {
+    alignSelf: 'center',
+  },
+
+  Icon2: {
+    alignSelf: 'center',
+    color: '#ff6666',
+    fontSize: 30,
+  },
+  editIcon: {
+    alignSelf: 'center',
+    color: '#ff6',
+    fontSize: 30,
   },
 });
