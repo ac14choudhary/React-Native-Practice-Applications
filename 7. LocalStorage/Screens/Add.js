@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: '85%',
     alignSelf: 'center',
-    fontSize: 22,
+    fontSize: 20,
     color: 'white',
     borderRadius: 10,
     paddingHorizontal: 20,

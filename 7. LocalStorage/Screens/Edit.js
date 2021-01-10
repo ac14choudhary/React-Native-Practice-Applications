@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     marginTop: 50,
     marginBottom: 20,
+    fontSize: 20,
   },
   formItem: {
     marginBottom: 20,

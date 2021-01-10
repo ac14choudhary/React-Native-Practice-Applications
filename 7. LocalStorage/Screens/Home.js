@@ -45,7 +45,7 @@ export default function Home({navigation, route}) {
                 onPress={() => {
                   navigation.navigate('Edit');
                 }}>
-                <Icon style={styles.editIcon} name="pencil" />
+                <Icon style={styles.editIcon} name="file-document-edit" />
               </TouchableOpacity>
             </View>
             <View style={{alignSelf: 'center', flex: 3}}>
@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#242424',
     alignSelf: 'center',
     borderRadius: 10,
-    justifyContent: 'space-evenly',
   },
   checkbox: {
     alignSelf: 'center',
