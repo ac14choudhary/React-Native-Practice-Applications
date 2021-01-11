@@ -21,30 +21,30 @@ export default function Add({navigation}) {
 
   const addToList = async () => {
     try {
-      if (!name || !totalSeasons) {
+      if (!name || !totalSeasons)
         Snackbar.show({
           backgroundColor: '#ff6666',
           textColor: '#ffffff',
           text: 'please enter both the values',
           duration: Snackbar.LENGTH_SHORT,
         });
-        const seasonsToAdd = {
-          id: shortid.generate(),
-          name: name,
-          totalSeasons: totalSeasons,
-          isWatched: false,
-        };
-        const storedValue = await AsyncStorage.getItem('@season_list');
-        const prevList = await JSON.parse(storedValue);
+      const seasonsToAdd = {
+        id: shortid.generate(),
+        name: name,
+        totalSeasons: totalSeasons,
+        isWatched: false,
+      };
+      const storedValue = await AsyncStorage.getItem('@season_list');
+      const prevList = await JSON.parse(storedValue);
 
-        if (!prevList) {
-          const newList = [seasonsToAdd];
-          await AsyncStorage.setItem('@season_list', JSON.stringify(newList));
-        } else {
-          prevList.push(seasonsToAdd);
-          await AsyncStorage.setItem('@season_list', JSON.stringify(prevList));
-        }
+      if (!prevList) {
+        const newList = [seasonsToAdd];
+        await AsyncStorage.setItem('@season_list', JSON.stringify(newList));
+      } else {
+        prevList.push(seasonsToAdd);
+        await AsyncStorage.setItem('@season_list', JSON.stringify(prevList));
       }
+
       if (name && totalSeasons) {
         navigation.navigate('Home');
       }
