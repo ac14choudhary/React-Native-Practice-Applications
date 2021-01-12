@@ -10,6 +10,7 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import shortid from 'shortid';
@@ -68,6 +69,26 @@ export default function Home({navigation, route}) {
     );
   }
 
+  // const externalAlert = () =>
+  //   Alert.alert(
+  //     'Delete',
+  //     'Are you sure you want to delete it ?',
+  //     [
+  //       {
+  //         text: 'No',
+  //         onPress: () => console.log('Cancel Pressed'),
+  //         style: 'cancel',
+  //       },
+  //       {
+  //         text: 'Yes',
+  //         onPress: () => {
+  //           deleteItem(season.id);
+  //         },
+  //       },
+  //     ],
+  //     {cancelable: false},
+  //   );
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {ListOfSeasons.length == 0 ? (
@@ -103,7 +124,24 @@ export default function Home({navigation, route}) {
               <View style={{alignSelf: 'center', flex: 3}}>
                 <TouchableOpacity
                   onPress={() => {
-                    deleteItem(season.id);
+                    Alert.alert(
+                      'Delete',
+                      'Are you sure you want to delete it ?',
+                      [
+                        {
+                          text: 'No',
+                          onPress: () => {},
+                          style: 'cancel',
+                        },
+                        {
+                          text: 'Yes',
+                          onPress: () => {
+                            deleteItem(season.id);
+                          },
+                        },
+                      ],
+                      {cancelable: false},
+                    );
                   }}>
                   <Icon style={styles.Icon2} name="delete" />
                 </TouchableOpacity>
