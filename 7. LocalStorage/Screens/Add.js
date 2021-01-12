@@ -40,7 +40,7 @@ export default function Add({navigation}) {
       if (!prevList) {
         const newList = [seasonsToAdd];
         await AsyncStorage.setItem('@season_list', JSON.stringify(newList));
-      } else {
+      } else if (name && totalSeasons && prevList) {
         prevList.push(seasonsToAdd);
         await AsyncStorage.setItem('@season_list', JSON.stringify(prevList));
       }

@@ -85,6 +85,7 @@ export default function Home({navigation, route}) {
                   alignSelf: 'center',
                   flex: 12,
                   flexDirection: 'column',
+                  paddingHorizontal: 10,
                 }}>
                 <Text style={styles.heading1}>{season.name}</Text>
                 <Text style={styles.subHeading1}>
