@@ -1,13 +1,10 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar,
-  TextInput,
   TouchableOpacity,
   ActivityIndicator,
   Alert,
@@ -19,7 +16,7 @@ import Snackbar from 'react-native-snackbar';
 import Checkbox from '@react-native-community/checkbox';
 import {useIsFocused} from '@react-navigation/native';
 
-export default function Home({navigation, route}) {
+export default function Home({navigation}) {
   const [ListOfSeasons, setListOfSeasons] = useState([]);
   const [loading, setLoading] = useState(false);
 

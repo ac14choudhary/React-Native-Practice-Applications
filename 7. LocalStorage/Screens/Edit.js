@@ -1,12 +1,9 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import React, {useState, useEffect} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
@@ -35,12 +32,12 @@ export default function Edit({navigation, route}) {
         const storedValue = await AsyncStorage.getItem('@season_list');
         const list = await JSON.parse(storedValue);
 
-        list.map((singleSeason1) => {
-          if (singleSeason1.id == id) {
-            singleSeason1.name = name;
-            singleSeason1.totalSeasons = totalSeasons;
+        list.map((singleSeason) => {
+          if (singleSeason.id == id) {
+            singleSeason.name = name;
+            singleSeason.totalSeasons = totalSeasons;
           }
-          return singleSeason1;
+          return singleSeason;
         });
         await AsyncStorage.setItem('@season_list', JSON.stringify(list));
       }
