@@ -10,8 +10,6 @@ import {
 } from 'react-native';
 import shortid from 'shortid';
 import AsyncStorage from '@react-native-community/async-storage';
-import snackbar from 'react-native-snackbar';
-
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Snackbar from 'react-native-snackbar';
 
@@ -115,7 +113,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#00BFA5',
     justifyContent: 'center',
     alignSelf: 'center',
-    marginTop: 25,
+    marginTop: 20,
     borderRadius: 10,
   },
   addText: {

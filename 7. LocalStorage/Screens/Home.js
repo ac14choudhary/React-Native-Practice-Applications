@@ -15,13 +15,12 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import shortid from 'shortid';
 import AsyncStorage from '@react-native-community/async-storage';
-import snackbar from 'react-native-snackbar';
+import Snackbar from 'react-native-snackbar';
 import Checkbox from '@react-native-community/checkbox';
 import {useIsFocused} from '@react-navigation/native';
 
 export default function Home({navigation, route}) {
   const [ListOfSeasons, setListOfSeasons] = useState([]);
-  const [isSelected, setSelection] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const isFocused = useIsFocused();
@@ -137,6 +136,12 @@ export default function Home({navigation, route}) {
                           text: 'Yes',
                           onPress: () => {
                             deleteItem(season.id);
+                            Snackbar.show({
+                              backgroundColor: '#ff6666',
+                              textColor: '#ffffff',
+                              text: 'deleted the item',
+                              duration: Snackbar.LENGTH_SHORT,
+                            });
                           },
                         },
                       ],
@@ -149,8 +154,7 @@ export default function Home({navigation, route}) {
 
               <View style={{alignSelf: 'center', flex: 3}}>
                 <Checkbox
-                  value={isSelected}
-                  onValueChange={setSelection}
+                  value={season.isWatched}
                   style={styles.checkbox}
                   onPress={() => {
                     markComplete(season.id);
