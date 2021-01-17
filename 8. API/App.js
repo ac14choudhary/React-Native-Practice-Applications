@@ -34,7 +34,11 @@ export default function App() {
   if (!details) {
     return (
       <View>
-        <ActivityIndicator color="white" size="large" />
+        <ActivityIndicator
+          style={styles.Indicator}
+          color="green"
+          size="large"
+        />
       </View>
     );
   } else {
@@ -69,13 +73,16 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '40%',
     backgroundColor: '#ff6666',
-    height: '10%',
+    height: '8%',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 50,
   },
   buttonText: {
     fontSize: 20,
     color: 'white',
     alignSelf: 'center',
+  },
+  Indicator: {
+    backgroundColor: '#121212',
   },
 });
