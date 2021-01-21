@@ -33,7 +33,7 @@ export default function App() {
 
   if (!details) {
     return (
-      <View>
+      <View style={styles.container}>
         <ActivityIndicator
           style={styles.Indicator}
           color="green"
