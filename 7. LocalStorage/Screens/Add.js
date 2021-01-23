@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
@@ -45,6 +44,12 @@ export default function Add({navigation}) {
 
       if (name && totalSeasons) {
         navigation.navigate('Home');
+        Snackbar.show({
+          backgroundColor: '#8BC34A',
+          textColor: '#ffffff',
+          text: 'Item added to the list',
+          duration: Snackbar.LENGTH_SHORT,
+        });
       }
     } catch (error) {
       console.log(error);
