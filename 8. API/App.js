@@ -13,13 +13,13 @@ import Axios from 'axios';
 import User from './Screens/User';
 
 export default function App() {
-  const URL = 'https://randomuser.me/api/';
+  const URL = 'https://apiinception.geny.co.in/regs';
   const [details, setDetails] = useState(null);
 
   const fetchDetails = async () => {
     try {
       const {data} = await Axios.get(URL);
-      const details = data.results[0];
+      const details = data.data;
       console.log(details);
       setDetails(details);
     } catch (error) {
@@ -45,13 +45,6 @@ export default function App() {
     return (
       <View style={styles.container}>
         <User pass={details} />
-        <TouchableOpacity
-          onPress={() => {
-            fetchDetails();
-          }}
-          style={styles.button}>
-          <Text style={styles.buttonText}>Get details</Text>
-        </TouchableOpacity>
       </View>
     );
   }

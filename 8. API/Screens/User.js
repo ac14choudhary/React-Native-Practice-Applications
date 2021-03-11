@@ -1,37 +1,73 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import momemt from 'moment';
 
 export default function User({pass}) {
   console.log(pass);
   return (
-    <View>
-      <Image
-        style={styles.profilePic}
-        source={{
-          uri: pass.picture.large,
-          width: 150,
-          height: 150,
-        }}></Image>
-      <Text style={styles.Text1}>
-        {pass.name.title} {pass.name.first} {pass.name.last}
-      </Text>
-      <Text style={styles.Text1}> Phone no -- {pass.cell}</Text>
+    <View style={styles.parent}>
+      <FlatList
+        keyExtractor={(item) => item._id}
+        data={pass}
+        renderItem={({item}) => (
+          <View style={styles.card}>
+            <Text style={styles.Text1}> {item.name} </Text>
+
+            <View style={styles.inner1}>
+              <Text style={styles.RegNo}> {item.collegeid} </Text>
+              <Text style={styles.Branch}> {item.branch} </Text>
+              <Text style={styles.whatsapp}> {item.whatsapp} </Text>
+            </View>
+          </View>
+        )}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   Text1: {
-    paddingTop: 20,
     fontSize: 20,
-    color: 'white',
+    color: 'black',
     alignSelf: 'center',
   },
+
   profilePic: {
     alignSelf: 'center',
     borderRadius: 100,
     borderWidth: 5,
     borderColor: 'white',
+  },
+  card: {
+    backgroundColor: '#ffffff',
+    margin: 10,
+    borderRadius: 10,
+    padding: 10,
+  },
+  parent: {
+    backgroundColor: '#dddddd',
+  },
+  inner1: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  RegNo: {
+    flex: 7,
+    fontSize: 15,
+    color: 'black',
+    alignSelf: 'center',
+  },
+  Branch: {
+    flex: 4,
+    fontSize: 15,
+    color: 'black',
+    alignSelf: 'center',
+    alignContent: 'center',
+  },
+  whatsapp: {
+    flex: 6,
+    fontSize: 15,
+    color: 'black',
+    alignSelf: 'center',
   },
 });
