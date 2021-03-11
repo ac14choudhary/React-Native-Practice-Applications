@@ -20,7 +20,7 @@ export default function App() {
     try {
       const {data} = await Axios.get(URL);
       const details = data.data;
-      console.log(details);
+
       setDetails(details);
     } catch (error) {
       console.log(error);

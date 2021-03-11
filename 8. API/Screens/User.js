@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 import momemt from 'moment';
 
 export default function User({pass}) {
@@ -10,15 +10,16 @@ export default function User({pass}) {
         keyExtractor={(item) => item._id}
         data={pass}
         renderItem={({item}) => (
-          <View style={styles.card}>
+          <TouchableOpacity style={styles.card}>
             <Text style={styles.Text1}> {item.name} </Text>
 
             <View style={styles.inner1}>
               <Text style={styles.RegNo}> {item.collegeid} </Text>
               <Text style={styles.Branch}> {item.branch} </Text>
+              <Text style={styles.Collage}>{item.college}</Text>
               <Text style={styles.whatsapp}> {item.whatsapp} </Text>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
   },
   inner1: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   RegNo: {
     flex: 7,
@@ -63,6 +65,12 @@ const styles = StyleSheet.create({
     color: 'black',
     alignSelf: 'center',
     alignContent: 'center',
+  },
+  Collage: {
+    flex: 7,
+    fontSize: 15,
+    color: 'black',
+    alignSelf: 'center',
   },
   whatsapp: {
     flex: 6,
