@@ -11,7 +11,7 @@ import {
 export default function App() {
   return (
     <View>
-      <Text>hello</Text>
+      <Text>hello I love to use REDUUUUUUUUUUUUUUUUUX</Text>
     </View>
   );
 }
