@@ -13,7 +13,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import Snackbar from 'react-native-snackbar';
 
 export default function Add({navigation}) {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(null);
   const [totalSeasons, setTotalSeasons] = useState('');
 
   const addToList = async () => {
