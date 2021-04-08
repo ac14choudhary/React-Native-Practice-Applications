@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'Flex_Scroll' do
+target 'Payment_gateway' do
   config = use_native_modules!
 
   use_react_native!(
@@ -12,9 +12,9 @@ target 'Flex_Scroll' do
     :hermes_enabled => false
   )
 
-  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+  pod 'react-native-razorpay', :path => '../node_modules/react-native-razorpay'
 
-  target 'Flex_ScrollTests' do
+  target 'Payment_gatewayTests' do
     inherit! :complete
     # Pods for testing
   end

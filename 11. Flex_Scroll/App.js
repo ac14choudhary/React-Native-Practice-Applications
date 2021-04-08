@@ -1,13 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,95 +9,31 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+export default function App() {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <ScrollView
+      style={{flex: 1}}
+      contentContainerStyle={{
+        justifyContent: 'space-between',
+        alwaysBounceVertical: 'true',
+      }}>
+      <View style={{flex: 1, backgroundColor: '#121212', height: 3000}}>
+        <View style={{flex: 1, backgroundColor: 'blue'}}></View>
+        <View style={{flex: 2, backgroundColor: 'green'}}></View>
+        <View style={{flex: 3, backgroundColor: '#red'}}></View>
+        <View style={{flex: 4, backgroundColor: 'yellow'}}></View>
+
+        <View style={{flex: 1, backgroundColor: 'purple'}}></View>
+        <View style={{flex: 4, backgroundColor: 'aqua'}}></View>
+        <View style={{flex: 7, backgroundColor: 'white'}}></View>
+        <View style={{flex: 5, backgroundColor: 'black'}}></View>
+        <View style={{flex: 1, backgroundColor: 'gray'}}></View>
+        <View style={{flex: 8, backgroundColor: 'orange'}}></View>
+        <View style={{flex: 9, backgroundColor: 'violet'}}></View>
+        <View style={{flex: 7, backgroundColor: 'blue'}}></View>
+      </View>
+    </ScrollView>
   );
-};
+}
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+const styles = StyleSheet.create({});
