@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
-
+import Carousel from 'react-native-snap-carousel';
 export default function App() {
+  const renderItem = ({item, index}) => {
+    return (
+      <View style={styles.slide}>
+        <Text style={styles.title}>{item.title}</Text>
+      </View>
+    );
+  };
+
   return (
     <ScrollView
       style={{flex: 1}}
@@ -18,7 +27,9 @@ export default function App() {
         alwaysBounceVertical: 'true',
       }}>
       <View style={{flex: 1, backgroundColor: '#121212', height: 3000}}>
-        <View style={{flex: 1, backgroundColor: 'blue'}}></View>
+        <TouchableOpacity style={{flex: 9, backgroundColor: 'blue'}}>
+          <View></View>
+        </TouchableOpacity>
         <View style={{flex: 2, backgroundColor: 'green'}}></View>
         <View style={{flex: 3, backgroundColor: '#red'}}></View>
         <View style={{flex: 4, backgroundColor: 'yellow'}}></View>
